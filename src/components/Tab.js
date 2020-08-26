@@ -27,7 +27,6 @@ export default class Tab extends Component {
       PropTypes.object,
     ]),
     disabled: PropTypes.bool,
-    tabIndex: PropTypes.string,
     disabledClassName: PropTypes.string,
     focus: PropTypes.bool, // private
     id: PropTypes.string, // private
@@ -63,13 +62,12 @@ export default class Tab extends Component {
       panelId,
       selected,
       selectedClassName,
-      tabIndex,
       tabRef,
       ...attributes
     } = this.props;
 
     return (
-      <li
+      <button
         {...attributes}
         className={cx(className, {
           [selectedClassName]: selected,
@@ -84,10 +82,9 @@ export default class Tab extends Component {
         aria-selected={selected ? 'true' : 'false'}
         aria-disabled={disabled ? 'true' : 'false'}
         aria-controls={panelId}
-        tabIndex={tabIndex || (selected ? '0' : null)}
       >
         {children}
-      </li>
+      </button>
     );
   }
 }

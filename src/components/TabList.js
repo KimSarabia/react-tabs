@@ -20,9 +20,9 @@ export default class TabList extends Component {
     const { children, className, ...attributes } = this.props;
 
     return (
-      <ul {...attributes} className={cx(className)} role="tablist">
+      <div {...attributes} className={cx(className)} role="tablist">
         {children}
-      </ul>
+      </div>
     );
   }
 }
